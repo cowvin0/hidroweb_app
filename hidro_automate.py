@@ -25,6 +25,30 @@ async def main():
 
         await municipio_input.fill('pian')
 
+        await page.evaluate('''
+                            (async () => {
+                              try {
+                                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                                const elements = document.querySelectorAll('.mat-option-text');
+
+                                for(const element of elements) {
+                                  if(element.textContent.trim() === 'PIANCÓ') {
+                                      element.click();
+                                      console.log("Clicked on element with text 'PIANCÓ'");
+                                      break;
+                                      }
+                                    }
+                                  } catch(error) {
+                                      console.error("An error ocurred:", error);
+                                      }
+                                })();
+                            ''')
+
+        await page.evaluate('document.querySelectorAll(".mat-button-wrapper")[2].click()')
+
+        document.querySelectorAll('.mat-checkbox-inner-container.mat-checkbox-inner-container-no-side-margin').forEach((element) => element.click())
+
         breakpoint()
 
         await page.wait_for_timeout(5000)
