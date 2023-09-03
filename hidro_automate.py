@@ -47,7 +47,9 @@ async def main():
 
         await page.evaluate('document.querySelectorAll(".mat-button-wrapper")[2].click()')
 
-        document.querySelectorAll('.mat-checkbox-inner-container.mat-checkbox-inner-container-no-side-margin').forEach((element) => element.click())
+        await page.evaluate('document.querySelectorAll(".mat-checkbox-inner-container.mat-checkbox-inner-container-no-side-margin").forEach((element) => element.click())')
+
+        await page.evaluate('document.querySelectorAll(".mat-radio-outer-circle")[2].click()')
 
         breakpoint()
 
