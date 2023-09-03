@@ -25,6 +25,8 @@ async def main():
 
         await municipio_input.fill('pian')
 
+        await page.wait_for_timeout(5000)
+
         await page.evaluate('''
                             (async () => {
                               try {
@@ -47,14 +49,17 @@ async def main():
 
         await page.evaluate('document.querySelectorAll(".mat-button-wrapper")[2].click()')
 
+        await page.wait_for_timeout(5000)
+
         await page.evaluate('document.querySelectorAll(".mat-checkbox-inner-container.mat-checkbox-inner-container-no-side-margin").forEach((element) => element.click())')
 
         await page.evaluate('document.querySelectorAll(".mat-radio-outer-circle")[2].click()')
+
+        await page.evaluate('document.querySelector(".mat-raised-button.mat-primary").click()')
 
         breakpoint()
 
         await page.wait_for_timeout(5000)
 
-        print(await page.title())
-
-asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())
