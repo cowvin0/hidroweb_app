@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "hidroweb-app"
+version = "0.1.0"
+description = ""
+authors = ["gabrielpereira12345 <gabrielpereira00PereiraGabriel@outlook.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+playwright = ">=1.37.0,<1.38.0"
+asyncio = ">=3.4.3,<3.5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
